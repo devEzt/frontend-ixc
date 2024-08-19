@@ -108,9 +108,24 @@ export const ChatPage = () => {
         receiver: selectedUser,
       }
 
-      const { data } = await axios.post('http://localhost:5000/api/messages', message)
-      socket.emit('messageSent', data.newMessage)
-      setInput('')
+      try {
+        const { data } = await axios.post('http://localhost:5000/api/messages', message)
+        socket.emit('messageSent', data.newMessage)
+        setInput('')
+
+        const exists = conversations.some((conv) => conv.userId === selectedUser)
+        if (!exists) {
+          const newUser = users.find((user) => user._id === selectedUser)
+          const newConversation = {
+            userId: selectedUser,
+            name: newUser ? newUser.name : 'Unknown User',
+            lastMessage: message.content,
+          }
+          setConversations((prev) => [newConversation, ...prev])
+        }
+      } catch (error) {
+        console.error('Error sending message:', error)
+      }
     }
   }
 
