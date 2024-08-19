@@ -15,11 +15,12 @@ export const LoginPage = () => {
         email,
         password,
       })
-      const { token } = response.data
+      const { token, userId } = response.data
       localStorage.setItem('token', token)
+      localStorage.setItem('userId', userId)
       navigate('/chat')
-    } catch (error) {
-      console.error('Login failed:', error)
+    } catch (error: any) {
+      console.error('Login failed:', error.response?.data?.message || 'Login failed')
     }
   }
 
