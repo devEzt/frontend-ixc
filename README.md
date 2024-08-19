@@ -1,46 +1,49 @@
-# Getting Started with Create React App
+# Chat em Tempo Real
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto é um sistema de chat em tempo real desenvolvido para demonstrar a aplicação de tecnologias modernas de desenvolvimento web, incluindo React.js, Socket.io e MUI (Material-UI). O objetivo é proporcionar uma experiência de comunicação instantânea entre usuários.
 
-## Available Scripts
+## Tecnologias
 
-In the project directory, you can run:
+O sistema de chat foi construído usando as seguintes tecnologias:
 
-### `npm start`
+- [ReactJS](https://reactjs.org/): Uma biblioteca JavaScript para construir interfaces de usuário.
+- [Socket.io](https://socket.io/): Permite comunicação em tempo real, bidirecional e baseada em eventos entre clientes e servidor.
+- [axios](https://axios-http.com/): Cliente HTTP baseado em promessas para o browser e node.js.
+- [MUI](https://mui.com/): Biblioteca de componentes React para um desenvolvimento ágil e fácil.
+- [date-fns](https://date-fns.org/): Biblioteca moderna de manipulação de datas em JavaScript.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Funcionalidades
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Comunicação em tempo real:** Envio e recebimento de mensagens instantaneamente.
+- **Atualização de status do usuário:** Indicadores para mostrar se o usuário está online ou offline.
+- **Persistência de mensagens:** As mensagens são salvas no banco de dados e podem ser recuperadas ao recarregar a aplicação.
 
-### `npm test`
+## Como começar
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Primeiramente, clone o repositório do projeto:
 
-### `npm run build`
+```bash
+git clone https://github.com/devEzt/frontend-ixc.git
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Use o NPM para instalar todas as dependencias.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Run
 
-### `npm run eject`
+```bash
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Banco de Dados
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+O teste me auxilio no aprimoramento de meu conhecimento técnico sobre Node e Api's no geral, buscando as libs atuais para conseguir o melhor resultado.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+Link repositório Server:  https://github.com/devEzt/BackEnd-Ixc
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Este README oferece uma visão geral clara do projeto, incluindo como configurar e executar o projeto localmente. As seções estão bem organizadas para facilitar a leitura e compreensão dos usuários que desejam usar ou contribuir para o projeto.
