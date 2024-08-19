@@ -1,8 +1,6 @@
 import { Button, Container, Paper, styled, TextField } from '@mui/material'
 
 export const GlobalStyle = styled('div')({
-  margin: 0,
-  padding: 0,
   boxSizing: 'border-box',
   height: '100%',
   width: '100%',
@@ -26,7 +24,7 @@ export const StyledPaper = styled(Paper)({
   borderRadius: '15px',
   backgroundColor: '#ffffffe0',
   boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
-  maxWidth: '500px',
+  maxWidth: '600px',
 })
 
 export const StyledTextField = styled(TextField)({

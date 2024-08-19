@@ -31,9 +31,7 @@ export const LoginPage = () => {
           <Typography component="h1" variant="h5" style={{ marginBottom: '20px', fontWeight: 'bold' }}>
             Acesse sua conta
           </Typography>
-          <Typography color="textSecondary" style={{ marginBottom: '30px' }}>
-            Insira suas credenciais para fazer login
-          </Typography>
+          <Typography color="textSecondary">Insira suas credenciais para fazer login</Typography>
           <Box component="form" onSubmit={handleLogin} sx={{ width: '100%' }}>
             <S.StyledTextField
               fullWidth
