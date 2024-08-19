@@ -2,7 +2,8 @@ import { Button, Container, Paper, styled, TextField } from '@mui/material'
 
 export const GlobalStyle = styled('div')({
   boxSizing: 'border-box',
-  overflow: 'hidden',
+  height: '100%',
+  width: '100%',
 })
 
 export const StyledContainer = styled(Container)({
@@ -10,8 +11,8 @@ export const StyledContainer = styled(Container)({
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  height: '100vh',
-  width: '100vw',
+  minHeight: '100vh',
+  minWidth: '100vw',
   backgroundImage: 'linear-gradient(180deg, #6a11cb 0%, #2575fc 100%)',
 })
 
