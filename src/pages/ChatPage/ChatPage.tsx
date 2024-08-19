@@ -24,7 +24,7 @@ import { Conversation, Message, User } from './types'
 import { format } from 'date-fns' // Você precisará instalar esta biblioteca se ainda não o fez
 import { getMessageStyle, stringToColor } from './utils'
 
-const socket = io('http://localhost:5000')
+const socket = io('https://backend-ixc-production.up.railway.app')
 
 export const ChatPage = () => {
   const [messages, setMessages] = useState<Message[]>([])
@@ -41,7 +41,7 @@ export const ChatPage = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const { data } = await axios.get('http://localhost:5000/api/users')
+      const { data } = await axios.get('https://backend-ixc-production.up.railway.app/api/users')
       const currentUser = data.find((user: User) => user._id === loggedUserId)
       setLoggedUserName(currentUser ? currentUser.name : '')
       setUsers(data.filter((user: User) => user._id !== loggedUserId))
@@ -69,7 +69,9 @@ export const ChatPage = () => {
   useEffect(() => {
     const fetchConversations = async () => {
       try {
-        const { data } = await axios.get(`http://localhost:5000/api/messages/conversations/${loggedUserId}`)
+        const { data } = await axios.get(
+          `https://backend-ixc-production.up.railway.app/api/messages/conversations/${loggedUserId}`
+        )
         console.log('Conversas recebidas:', data)
         setConversations(data)
       } catch (error) {
@@ -90,7 +92,7 @@ export const ChatPage = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:5000/api/users/logout', { userId: loggedUserId })
+      await axios.post('https://backend-ixc-production.up.railway.app/api/users/logout', { userId: loggedUserId })
       localStorage.removeItem('token')
       localStorage.removeItem('userId')
       localStorage.removeItem('userName')
@@ -109,7 +111,7 @@ export const ChatPage = () => {
       }
 
       try {
-        const { data } = await axios.post('http://localhost:5000/api/messages', message)
+        const { data } = await axios.post('https://backend-ixc-production.up.railway.app/api/messages', message)
         socket.emit('messageSent', data.newMessage)
         setInput('')
 
@@ -131,7 +133,9 @@ export const ChatPage = () => {
 
   const selectUser = async (userId: string) => {
     setSelectedUser(userId)
-    const response = await axios.get(`http://localhost:5000/api/messages/${loggedUserId}/${userId}`)
+    const response = await axios.get(
+      `https://backend-ixc-production.up.railway.app/api/messages/${loggedUserId}/${userId}`
+    )
     setMessages(response.data)
   }
 

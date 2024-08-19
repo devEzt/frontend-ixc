@@ -15,7 +15,11 @@ export const RegisterPage = () => {
     event.preventDefault()
     try {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const response = await axios.post('http://localhost:5000/api/users', { name, email, password })
+      const response = await axios.post('https://backend-ixc-production.up.railway.app/api/users', {
+        name,
+        email,
+        password,
+      })
       navigate('/login')
     } catch (error: any) {
       console.error('Registration failed:', error.response?.data?.message || 'Registration failed')

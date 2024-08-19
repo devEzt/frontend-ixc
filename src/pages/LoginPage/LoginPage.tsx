@@ -14,7 +14,10 @@ export const LoginPage = () => {
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     try {
-      const response = await axios.post('http://localhost:5000/api/users/login', { email, password })
+      const response = await axios.post('https://backend-ixc-production.up.railway.app/api/users/login', {
+        email,
+        password,
+      })
       const { token, userId } = response.data
       localStorage.setItem('token', token)
       localStorage.setItem('userId', userId)
