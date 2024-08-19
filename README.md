@@ -1,5 +1,8 @@
 # Chat em Tempo Real
 
+![REAL TIME Logo](./public/favicon.ico)
+
+
 Este projeto é um sistema de chat em tempo real desenvolvido para demonstrar a aplicação de tecnologias modernas de desenvolvimento web, incluindo React.js, Socket.io e MUI (Material-UI). O objetivo é proporcionar uma experiência de comunicação instantânea entre usuários.
 
 ## Tecnologias
