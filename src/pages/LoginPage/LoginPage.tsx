@@ -1,20 +1,20 @@
 import { useState } from 'react'
-import { Container, TextField, Button, Box, Typography, Paper } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
+
+import * as S from './styles'
 
 export const LoginPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
 
-  const handleLogin = async (event: any) => {
+  const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     try {
-      const response = await axios.post('http://localhost:5000/api/users/login', {
-        email,
-        password,
-      })
+      const response = await axios.post('http://localhost:5000/api/users/login', { email, password })
       const { token, userId } = response.data
       localStorage.setItem('token', token)
       localStorage.setItem('userId', userId)
@@ -25,43 +25,49 @@ export const LoginPage = () => {
   }
 
   return (
-    <Container component="main" maxWidth="xs">
-      <Paper elevation={6} sx={{ mt: 8, p: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Typography component="h1" variant="h5">
-          Login
-        </Typography>
-        <Box component="form" sx={{ mt: 1 }}>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email"
-            name="email"
-            autoComplete="email"
-            autoFocus
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }} onClick={handleLogin}>
-            Login
-          </Button>
-        </Box>
-      </Paper>
-    </Container>
+    <S.GlobalStyle>
+      <S.StyledContainer>
+        <S.StyledPaper>
+          <Typography component="h1" variant="h5" style={{ marginBottom: '20px', fontWeight: 'bold' }}>
+            Acesse sua conta
+          </Typography>
+          <Typography color="textSecondary" style={{ marginBottom: '30px' }}>
+            Insira suas credenciais para fazer login
+          </Typography>
+          <Box component="form" onSubmit={handleLogin} sx={{ width: '100%' }}>
+            <S.StyledTextField
+              fullWidth
+              variant="outlined"
+              label="E-mail"
+              name="email"
+              autoComplete="email"
+              autoFocus
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <S.StyledTextField
+              fullWidth
+              variant="outlined"
+              label="Senha"
+              type="password"
+              name="password"
+              autoComplete="current-password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <S.LoginButton
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              endIcon={<ArrowForwardIosIcon />}
+            >
+              Acessar
+            </S.LoginButton>
+            <S.CreateAccountButton onClick={() => navigate('/register')}>Criar uma nova conta</S.CreateAccountButton>
+          </Box>
+        </S.StyledPaper>
+      </S.StyledContainer>
+    </S.GlobalStyle>
   )
 }
