@@ -3,7 +3,9 @@
 ![REAL TIME Logo](./public/favicon.ico)
 
 
-Este projeto é um sistema de chat em tempo real desenvolvido para demonstrar a aplicação de tecnologias modernas de desenvolvimento web, incluindo React.js, Socket.io e MUI (Material-UI). O objetivo é proporcionar uma experiência de comunicação instantânea entre usuários, integrado com backend em Node.js.
+Este projeto é um sistema de chat em tempo real desenvolvido para demonstrar a aplicação de tecnologias modernas de desenvolvimento web, incluindo React.js, Socket.io e MUI (Material-UI). O objetivo é proporcionar uma experiência de comunicação instantânea entre usuários, integrado com backend em Node.js. Foi feito deploy no vercel para testes.
+
+## Visite para testar -> [Vercel - Frontend - IXC](https://frontend-ixc.vercel.app/) Para ver e testar as funcionalidades.
 
 ## Tecnologias
 
